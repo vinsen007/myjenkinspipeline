@@ -1,24 +1,23 @@
-pipeline{
+pipeline {
+    agent any
 
-agent any
+    stages {
+        stage('SCM') {
+            steps {
+                echo "git pull my code"
+            }
+        }
 
-stages {
-       stage('SCM'){
-                   steps {
-                         echo "git pull my code"
-         }
-}
-stage('Deploy'){
-       steps{
-              echo "deploying my code"
-         }
-}
+        stage('Deploy') {
+            steps {
+                echo "deploying my code"
+            }
+        }
 
-stage('Test'){
-       steps {
-              echo "test my final webapp"
-         }
-
-}
-
+        stage('Test') {
+            steps {
+                echo "test my final webapp"
+            }
+        }
+    }
 }
